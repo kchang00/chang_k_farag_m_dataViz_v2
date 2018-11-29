@@ -232,14 +232,14 @@ bronze_canada_hockeyMedals = []
 
 print('pushing data to Canada ice hockey array')
 
-# for hockey in canada:
-#     if hockey[2] == 'Ice Hockey' and hockey[3] == 'Gold':
-#         gold_canada_hockeyMedals.append(hockey)
-#     elif hockey[2] == 'Ice Hockey' and hockey[3] == 'Silver':
-#         silver_canada_hockeyMedals.append(hockey)
-#     elif hockey[2] == 'Ice Hockey' and hockey[3] == 'Bronze':
-#         bronze_canada_hockeyMedals.append(hockey)
+for hockey in canada:
+    if hockey[2] == 'Ice Hockey' and hockey[3] == 'Gold':
+        gold_canada_hockeyMedals.append(hockey)
+    elif hockey[2] == 'Ice Hockey' and hockey[3] == 'Silver':
+        silver_canada_hockeyMedals.append(hockey)
+    elif hockey[2] == 'Ice Hockey' and hockey[3] == 'Bronze':
+        bronze_canada_hockeyMedals.append(hockey)
 
-print('Canada has won', gold_canada_hockeyMedals, 'gold hockey medals')
-print('Canada has won', silver_canada_hockeyMedals, 'silver hockey medals')
-print('Canada has won', bronze_canada_hockeyMedals, 'bronze hockey medals')
+print('Canada has won', len(gold_canada_hockeyMedals), 'gold hockey medals')
+print('Canada has won', len(silver_canada_hockeyMedals), 'silver hockey medals')
+print('Canada has won', len(bronze_canada_hockeyMedals), 'bronze hockey medals')

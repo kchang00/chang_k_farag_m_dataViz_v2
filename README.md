@@ -16,3 +16,7 @@ Nov. 27 - Kayla
 - Created new repository
 - Added class code
 - Updated canadaVWorld (added 2 datasets together)
+
+Nov. 28 - Kayla
+
+- fixed Canada hockey array calculations (added len)!!!! Woohoo.
