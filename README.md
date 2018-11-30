@@ -20,3 +20,10 @@ Nov. 27 - Kayla
 Nov. 28 - Kayla
 
 - fixed Canada hockey array calculations (added len)!!!! Woohoo.
+
+Nov. 30 - Kayla
+
+- Added usa array
+- Added worldNoU array (world values without USA or Canada)
+- Added calculations for world (worldNoU + usa)
+- Updated class challenge section
