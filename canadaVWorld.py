@@ -39,6 +39,8 @@ print(line)
 print(canada[0])  # processing first header title
 print('processed', line_count, 'rows of data')
 
+# Data Set 1 ######
+
 # gold medals per year
 gold_1924 = []
 gold_1948 = []
@@ -105,46 +107,7 @@ print('Canada won', len(silver_2014), 'silver medals in 2014')
 print('Canada won', len(bronze_1924), 'bronze medals in 1924')
 print('Canada won', len(bronze_2014), 'bronze medals in 2014')
 
-# bar graph - number of medals total per year
-# bar graph - 2014 number of gold, bronze, silver medals
-
-men = (192, 128, 66)
-women = (123, 75, 41)
-
-ind = np.arange(len(men))  # the x locations for the groups
-width = 0.35  # width of the bars
-
-fig, ax = plt.subplots()
-rects1 = ax.bar(ind - width/2, men, width,
-                color='#228B22', label='Men')
-rects2 = ax.bar(ind + width/2, women, width,
-                color='#4b0082', label='Women')
-
-
-ax.set_ylabel('# Medals Won')
-ax.set_title('Types of Medals Won Between Men and Women')
-ax.set_xticks(ind)
-ax.set_xticklabels(('Gold', 'Silver', 'Bronze'))
-ax.legend()
-
-
-def autolabel(rects, xpos='center'):
-    xpos = xpos.lower()
-    ha = {'center': 'center', 'right': 'left', 'left': 'right'}
-    offset = {'center': 0.5, 'right': 0.57, 'left': 0.43}
-
-    for rect in rects:
-        height = rect.get_height()
-        ax.text(rect.get_x() + rect.get_width() * offset[xpos], 1.01 * height,
-                '{}'.format(height), ha=ha[xpos], va='bottom')
-
-
-autolabel(rects1, "left")
-autolabel(rects2, "right")
-
-plt.show()
-
-# filtering Canada 2014 gold medals by gender
+# Class Challenge: filtering Canada 2014 gold medals by gender ######
 
 gold_2014_men = []
 gold_2014_women = []
@@ -161,6 +124,8 @@ for gender in gold_2014:
 print('Class challenge:')
 print('Male athletes in Canada won', len(gold_2014_men), 'gold medals in 2014')
 print('Female athletes in Canada won', len(gold_2014_women), 'gold medals in 2014')
+
+# Data Set 2 ######
 
 gold_men = []
 gold_women = []
@@ -201,47 +166,7 @@ print('Female athletes in Canada won', len(silver_women), 'silver medals')
 print('Male athletes in Canada won', len(bronze_men), 'bronze medals')
 print('Female athletes in Canada won', len(bronze_women), 'bronze medals')
 
-# bar graph men gold, silver, bronze vs women gold, silver, bronze
-# percentages of medals per men in canada, medals per women in canada
-
-men = (192, 128, 66)
-women = (123, 75, 41)
-
-ind = np.arange(len(men))  # the x locations for the groups
-width = 0.35  # width of the bars
-
-fig, ax = plt.subplots()
-rects1 = ax.bar(ind - width/2, men, width,
-                color='#228B22', label='Men')
-rects2 = ax.bar(ind + width/2, women, width,
-                color='#4b0082', label='Women')
-
-
-ax.set_ylabel('# Medals Won')
-ax.set_title('Types of Medals Won Between Men and Women')
-ax.set_xticks(ind)
-ax.set_xticklabels(('Gold', 'Silver', 'Bronze'))
-ax.legend()
-
-
-def autolabel(rects, xpos='center'):
-    xpos = xpos.lower()
-    ha = {'center': 'center', 'right': 'left', 'left': 'right'}
-    offset = {'center': 0.5, 'right': 0.57, 'left': 0.43}
-
-    for rect in rects:
-        height = rect.get_height()
-        ax.text(rect.get_x() + rect.get_width()*offset[xpos], 1.01*height,
-                '{}'.format(height), ha=ha[xpos], va='bottom')
-
-
-autolabel(rects1, "left")
-autolabel(rects2, "right")
-
-plt.show()
-
-# Bar graph canada hockey gold, silver, bronze vs all the world combined bronze silver gold 
-# pie chart canada vs usa total medals
+# Data Set 3 ######
 
 hockey = []
 
@@ -297,3 +222,122 @@ print('world has won', len(bronze_worldNoU_hockeyMedals + bronze_usa_hockeyMedal
 print('USA has won', len(gold_usa_hockeyMedals), 'gold hockey medals')
 print('USA has won', len(silver_usa_hockeyMedals), 'silver hockey medals')
 print('USA has won', len(bronze_usa_hockeyMedals), 'bronze hockey medals')
+
+
+# plots ! ######
+
+# Data Set 1 (for Malek) ######
+# histogram? - number of medals CAN total per year
+# bar graph - 2014 number of CAN gold, bronze, silver medals
+
+
+# Data Set 2 ######
+
+# pie chart - percentages of medals per men in canada, medals per women in canada
+
+# hard calculations - in case want to change data
+men_medals = gold_men + silver_men + bronze_men
+women_medals = gold_women + silver_women + bronze_women
+
+total_men = int(len(men_medals) / len(canada) * 100)
+total_women = int(len(women_medals) / len(canada) * 100)
+
+labels = ['Men', 'Women']
+sizes = [total_men, total_women]
+colors = ['#99ff99', '#b0cfff']
+explode = (0.1, 0.1)
+
+plt.pie(sizes, explode=explode, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90)
+plt.axis('equal')
+
+plt.legend(labels, loc=1)
+plt.title('Percentage of Medals Won Between Men and Women')
+plt.xlabel('1924 - 2014 Winter Olympics: Canada Medal Results')
+plt.show()
+
+# bar graph - CAN men gold, silver, bronze vs women gold, silver, bronze
+
+men = (len(gold_men), len(silver_men), len(bronze_men))
+women = (len(gold_women), len(silver_women), len(bronze_women))
+
+ind = np.arange(len(men))  # the x locations for the groups
+width = 0.30  # width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(ind - width / 2, men, width,
+                color='#99ff99', label='Men')
+rects2 = ax.bar(ind + width / 2, women, width,
+                color='#b0cfff', label='Women')
+
+ax.set_ylabel('# Medals Won')
+ax.set_title('Types of Medals Won Between Men and Women')
+ax.set_xticks(ind)
+ax.set_xticklabels(('Gold', 'Silver', 'Bronze'))
+ax.legend()
+
+
+def autolabel(rects, xpos='center'):
+    xpos = xpos.lower()
+    ha = {'center': 'center', 'right': 'left', 'left': 'right'}
+    offset = {'center': 0.5, 'right': 0.57, 'left': 0.43}
+
+    for rect in rects:
+        height = rect.get_height()
+        ax.text(rect.get_x() + rect.get_width() * offset[xpos], 1.00 * height,
+                '{}'.format(height), ha=ha[xpos], va='bottom')  # changes number labels
+
+
+autolabel(rects1, "left")
+autolabel(rects2, "right")
+
+plt.show()
+
+# Data Set 3 ######
+
+# Stacked bar graph canada hockey gold, silver, bronze vs all the world bronze silver gold
+
+men = (len(gold_men), len(silver_men), len(bronze_men))
+women = (len(gold_women), len(silver_women), len(bronze_women))
+
+N = 3  # number of bar columns
+worldHockey = (len(gold_worldNoU_hockeyMedals) + len(gold_usa_hockeyMedals),
+               len(silver_worldNoU_hockeyMedals) +
+               len(silver_usa_hockeyMedals),
+               len(bronze_worldNoU_hockeyMedals) +
+               len(bronze_usa_hockeyMedals))
+canadaHockey = (len(gold_canada_hockeyMedals),
+                    len(silver_canada_hockeyMedals),
+                    len(bronze_canada_hockeyMedals))
+ind = np.arange(N)  # the x locations for the groups
+width = 0.30  # the width of the bars: can also be len(x) sequence
+
+p1 = plt.bar(ind, worldHockey, width)  # groups world
+p2 = plt.bar(ind, canadaHockey, width, bottom=worldHockey)  # groups canada, bottom stacks bars
+
+plt.ylabel('Scores')
+plt.title('Ice Hockey Medals: Canada vs. World')
+plt.xticks(ind, ('Gold', 'Silver', 'Bronze'))
+plt.yticks(np.arange(0, 800, 100))  # start of interval (0 default), last interval (800 unseen), scale (count by 100)
+plt.legend((p1[0], p2[0]), ('World', 'Canada'))
+
+plt.show()
+
+# pie chart canada vs usa total medals
+
+# hard calculations - in case want to change data
+total_canada_usa = canada + usa
+can_percentage = int(len(canada) / len(total_canada_usa) * 100)
+u_percentage = int(len(usa) / len(total_canada_usa) * 100)
+
+labels = ['Canada', 'USA']
+sizes = [can_percentage, u_percentage]
+colors = ['tomato', 'skyblue']
+explode = (0.1, 0.1)
+
+plt.pie(sizes, explode=explode, colors=colors, autopct='%1.1f%%', shadow=True, startangle=90)
+plt.axis('equal')
+
+plt.legend(labels, loc=1)
+plt.title('Canada VS USA Rivalry')
+plt.xlabel('1924 - 2014 Winter Olympics: Canada and USA Medal Results')
+plt.show()
