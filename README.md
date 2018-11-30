@@ -27,3 +27,5 @@ Nov. 30 - Kayla
 - Added worldNoU array (world values without USA or Canada)
 - Added calculations for world (worldNoU + usa)
 - Updated class challenge section
+- Added hard calculations (for versatility)
+- Added Dataset 2 and 3 graphs (4 graphs)
