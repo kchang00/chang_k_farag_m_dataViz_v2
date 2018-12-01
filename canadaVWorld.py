@@ -374,6 +374,6 @@ plt.pie(sizes, explode=explode, colors=colors, autopct='%1.1f%%', shadow=True, s
 plt.axis('equal')
 
 plt.legend(labels, loc=1)
-plt.title('Canada VS USA Rivalry')
+plt.title('Canada vs. USA Rivalry')
 plt.xlabel('1924 - 2014 Winter Olympics: Canada and USA Medal Results')
 plt.show()
