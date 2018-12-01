@@ -29,3 +29,6 @@ Nov. 30 - Kayla
 - Updated class challenge section
 - Added hard calculations (for versatility)
 - Added Dataset 2 and 3 graphs (4 graphs)
+- More CSS styling
+- Added flexbox layout
+- Edited description

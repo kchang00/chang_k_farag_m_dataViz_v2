@@ -6,13 +6,18 @@
 	display: none;
 }
 
-body, html 
+body, html
 {
     height: 100%;
-    margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     background-color: #E0FFFF;
+}
+
+body, div, ul, p, section
+{
+    margin: 0;
+    padding: 0;
 }
 
 li, p
@@ -23,14 +28,17 @@ li, p
 #container
 {
 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin-top: 0px;
     margin-bottom: 0px;
     margin-left:120px;
     margin-right:120px;
     padding-top: 50px;
     padding-bottom:50px;
-    text-align: center;
     background-color: #FFFFFF;
+    width: 1200px;
 }
 
 /* Gets rid of bulleted list */
@@ -50,7 +58,7 @@ ul li
 
 #mainHeader
 {
-	margin: 0 auto;
+    margin: 0 auto;
 	margin-bottom: 75px;
 	padding: 10px 10px;
 	background-color: #87CEFA;
@@ -58,14 +66,44 @@ ul li
 	width:960px;
 	font-size: 25px;
 	font-weight: bold;
+    text-align: center;
 }
 
-.stat
+#mainImg
 {
-	margin: 0 auto;
-	margin-top: 50px;
+
+    width: 1200px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.dataSet
+{
+	display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 	padding: 10px 10px;
 	width:960px;
+
+}
+
+.vis
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.visImg
+{
+    height: auto;
+    width: auto;
+    max-width: 400px;
+    max-height: 340px;
+    margin-right: 50px; 
 }
 
 /* Footer */
@@ -76,12 +114,27 @@ footer
     padding-right: 120px;
     padding-bottom: 40px;
     padding-left: 120px;
-    margin: 0 auto;
     text-align: left;
 
 }
 
+footer hr
+{
+    margin: 30px 0px 30px 0px;
+}
+
 .footerButtons
 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
   text-align: right;
+}
+
+#footerCopyright
+{
+    display: flex;
+    width: 700px;
+    justify-content: flex-start;
+    align-items: center;
 }
