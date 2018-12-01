@@ -226,9 +226,45 @@ print('USA has won', len(bronze_usa_hockeyMedals), 'bronze hockey medals')
 
 # plots ! ######
 
-# Data Set 1 (for Malek) ######
+# Data Set 1 (for Malek (ouuu so nice! Thanks Kaylla ^-^)) ######
 # histogram? - number of medals CAN total per year
+medalsCAN_1924 = (len(gold_1924) + len(silver_1924) + len(bronze_1924))
+medalsCAN_1948 = (len(gold_1948) + len(silver_1948) + len(bronze_1948))
+medalsCAN_2002 = (len(gold_2002) + len(silver_2002) + len(bronze_2002))
+medalsCAN_2014 = (len(gold_2014) + len(silver_2014) + len(bronze_2014))
+ 
+
+plt.style.use('ggplot')
+
+x = ['1924', '1948', '2002', '2014']
+y = [medalsCAN_1924, medalsCAN_1948, medalsCAN_2002, medalsCAN_2014]
+
+x_pos = [i for i, _ in enumerate(x)]
+
+plt.bar(x_pos, y, color=('#F08080','#800000'))
+plt.xlabel("Year")
+plt.ylabel("Medals")
+plt.title("Medals earned by Canada per Year")
+
+plt.xticks(x_pos, x)
+
+plt.show()
+
 # bar graph - 2014 number of CAN gold, bronze, silver medals
+G2014 = len(gold_2014)
+S2014 = len(silver_2014)
+B2014 = len(bronze_2014)
+
+labels = ['Gold: 63', 'Silver: 22', 'Bronze: 5']
+sizes = [G2014, S2014, B2014]
+colors = ['#FFDF00', '#C0C0C0', '#CD7F32']
+patches, texts = plt.pie(sizes, colors=colors, shadow=True, startangle=90)
+plt.legend(patches, labels, loc="best")
+plt.title("Medals earned by Canada 2014")
+plt.axis('equal')
+plt.tight_layout()
+plt.show()
+
 
 
 # Data Set 2 ######
